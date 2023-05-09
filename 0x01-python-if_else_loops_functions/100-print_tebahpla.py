@@ -4,7 +4,8 @@ letter = ord('z')
 if letter == 'b':
     change = 30
 while letter >= ord('A'):
-    print(chr(letter), end="")
+    x = chr(letter)
+    print("{}".format(x), end="")
     letter += change
 
     if change == -33:
