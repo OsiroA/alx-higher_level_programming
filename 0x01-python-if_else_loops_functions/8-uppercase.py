@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 def uppercase(str):
-    result = ""
+    Letter = ""
     for letter in str:
         if 'a' <= letter <= 'z':
             upper = chr(ord(letter) - ord('a') + ord('A'))
-            result += upper
+            Letter += upper
         elif letter == "\n" or letter == "\r":
-            result += letter
+            Letter += letter
         else:
-            result += letter
-    print("{}".format(result))
+            Letter += letter
+    print("{}".format(Letter))
