@@ -2,20 +2,17 @@
 import random
 number = random.randint(-10000, 10000)
 if number < 0:
-    number = abs(number)
-    digit = -(number % 10)
-    digit = number % 10
-    if digit > 5:
-        print(f"Last digit of {number} is {digit} and is greater than 5")
-    if digit == 0:
-        print(f"Last digit of {number} is {digit} and is 0")
-    if digit < 6 and digit != 0:
-        print(f"Last digit of {number} is {digit} and is less than 6 and not 0")
+    numb = abs(number)
+    dig = -(numb % 10)
+    if dig == 0:
+        print(f"Last digit of {number} is {dig} and is 0")
+    elif dig < 6 and dig != 0:
+        print(f"Last digit of {number} is {dig} and is less than 6 and not 0")
 else:
-    digit = number % 10
-    if digit > 5:
-        print(f"Last digit of {number} is {digit} and is greater than 5")
-    if digit == 0:
-        print(f"Last digit of {number} is {digit} and is 0")
-    if digit < 6 and digit != 0:
-        print(f"Last digit of {number} is {digit} and is less than 6 and not 0")
+    dig = number % 10
+    if dig > 5:
+        print(f"Last digit of {number} is {dig} and is greater than 5")
+    elif dig == 0:
+        print(f"Last digit of {number} is {dig} and is 0")
+    elif dig < 6 and dig != 0:
+        print(f"Last digit of {number} is {dig} and is less than 6 and not 0")
