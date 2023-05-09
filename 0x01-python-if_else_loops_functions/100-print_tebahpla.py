@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 change = -33
-letter = ord('z')
-if letter == 'b':
-    change = 30
-while letter >= ord('A'):
+letter = 122
+
+while letter >= 65:
     x = chr(letter)
     print("{}".format(x), end="")
     letter += change
