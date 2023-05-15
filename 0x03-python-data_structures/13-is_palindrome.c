@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * is_palindrome - This function checks if a singly linked list is a palindrome
  * @head: a pointer to the pointer containing the address of the first node
@@ -7,42 +6,43 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *f, *s, *b, *prev;
-	int length = 0, i;
+	listint_t *slow = *head, *fast = *head, *prev = NULL, *temp;
+	int is_palindrome = 1;
 
-	/* Check if the linked list is empty */
-	if (head == NULL || *head == NULL)
-		return (1);
+	if (*head == NULL || (*head)->next == NULL)
+		return (is_palindrome);
 
-	/* Find the middle of the linked list */
-	f = s = *head;
-	while (f && f->next)
+	while (fast != NULL && fast->next != NULL)
 	{
-		f = f->next->next;
-		s = s->next;
-		length++;
+		fast = fast->next->next;
+		temp = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = temp;
 	}
+	if (fast != NULL)
+		slow = slow->next;
 
-	/* Reverse the second half of the linked list */
-	prev = NULL;
-	b = s;
-
-	for (i = 0; i < length; i++)
+	while (prev != NULL)
 	{
-		listint_t *temp = b->next;
-
-		b->next = prev;
-		prev = b;
-		b = temp;
-	}
-
-	/* Compare the first and second half of the linked list */
-	while (prev && *head)
-	{
-		if (prev->n != (*head)->n)
-		return (0);
+		if (prev->n != slow->n)
+		{
+			is_palindrome = 0;
+			break;
+		}
 		prev = prev->next;
-		*head = (*head)->next;
+		slow = slow->next;
 	}
-	return (1);
+	prev = NULL;
+	while (slow != NULL)
+	{
+		temp = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = temp;
+	}
+
+	(*head)->next = prev;
+
+	return (is_palindrome);
 }
