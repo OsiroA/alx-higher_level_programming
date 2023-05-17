@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 def complex_delete(a_dictionary, value):
     newDict = []
     for key, v in a_dictionary.items():
