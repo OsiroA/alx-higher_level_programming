@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     if isinstance(roman_string, str) is False:
-        return None
+        return 0
     elif roman_string is None:
-        return None
+        return 0
     answer = 0
     dictRoman = {
         'I': 1,
