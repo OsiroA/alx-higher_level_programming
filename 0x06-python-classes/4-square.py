@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ this class defines a square with optiuonal size"""
 
 
