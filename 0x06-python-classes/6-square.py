@@ -11,7 +11,7 @@ class Square:
         it must also be an integer
         """
         self.size = size
-        self.__position = position
+        self.position = position
 
     def area(self):
         """This function returns the area of a square
