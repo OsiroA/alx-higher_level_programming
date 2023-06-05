@@ -4,7 +4,7 @@ This prograsm creates an empty class that defines a rectangle
 """
 
 
-def Rectangle(self):
+class Rectangle(self):
     """
     This class is an empty rectangle
     it is a background for future codes
