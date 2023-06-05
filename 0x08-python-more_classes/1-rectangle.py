@@ -1,4 +1,4 @@
-#!/usr/bin/python3¬¬¬¬
+#!/usr/bin/python3
 """
 This program creates an class that defines a rectangle
 """
@@ -21,6 +21,13 @@ class Rectangle:
         """
         return self.__width
 
+    @property
+    def height(self):
+        """This sets the private instance attribute height,
+        for the Rectangle created
+        """
+        return self.__height
+
     @width.setter
     def width(self, value):
         """
@@ -32,13 +39,6 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
-
-    @property
-    def height(self):
-        """This sets the private instance attribute height,
-        for the Rectangle created
-        """
-        return __self.height
 
     @height.setter
     def height(self, value):
