@@ -50,7 +50,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def __str__(self):
         """Task 3: return printable rectangle with #"""
         if self.__width == 0 or self.__height == 0:
@@ -62,6 +62,7 @@ class Rectangle:
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
+
     def __repr__(self):
         """Returns the string representation of the Rectangle."""
         rectangle = "Rectangle(" + str(self.__width)
