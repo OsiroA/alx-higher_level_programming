@@ -50,7 +50,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def __str__(self):
         """Task 3: return printable rectangle with #"""
         if self.__width == 0 or self.__height == 0:
