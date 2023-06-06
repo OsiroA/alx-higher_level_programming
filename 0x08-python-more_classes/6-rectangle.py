@@ -8,8 +8,10 @@ class Rectangle:
     """
     This class defines a rectangle
     """
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -50,7 +52,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def __str__(self):
         """Task 3: return printable rectangle with #"""
         if self.__width == 0 or self.__height == 0:
