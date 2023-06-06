@@ -8,8 +8,11 @@ class Rectangle:
     """
     This class defines a rectangle
     """
+    number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -32,7 +35,6 @@ class Rectangle:
         """Public instance method that returns
         the rectangle area
         """
-        
         return self.__height * self.__width
 
     @width.setter
@@ -57,7 +59,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def __str__(self):
         """Task 3: return printable rectangle with #"""
         if self.__width == 0 or self.__height == 0:
@@ -65,7 +67,7 @@ class Rectangle:
         """algorithm to print rectangle with #"""
         rect = []
         for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
