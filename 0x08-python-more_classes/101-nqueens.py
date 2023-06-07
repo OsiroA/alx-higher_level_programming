@@ -1,18 +1,22 @@
 #!/usr/bin/python3
+"""
+N Queens problem
+"""
+
+
 import sys
-''' 
-    column first element, row second element
-'''
-def reject(board):
-    for col_A in board:
-        for col_B in board:
-            if not col_A is col_B:
-                if col_A[0] == col_B[0]:
-                    return True
-                if col_A[1] == col_B[1]:
-                    return True
-                if col_A[1] - col_A[0] == col_B[1] - col_B[0]:
-                    return True
-                if col_A[0] + col_A[1] == col_B[0] + col_B[1]:
-                    return True
-    return False
+
+n = int(sys.argv[1])
+
+for z in range(1, n - 1):
+    step = z + 1
+    tstep = step
+    new_list = [list([0, 0]) for i in range(0, n)]
+    for x in range(0, n):
+        new_list[x] = [x, tstep - 1]
+        tstep += step
+        if (tstep > n and n % 2 == 0):
+            tstep -= n + 1
+        elif (tstep > n and n % 2 == 1):
+            tstep -= n
+    print(new_list)
