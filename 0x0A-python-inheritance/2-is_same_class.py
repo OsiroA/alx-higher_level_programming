@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This is for task 2 of the python
+inheritance class
+"""
 
 
 def is_same_class(obj, a_class):
