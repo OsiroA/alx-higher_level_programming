@@ -3,7 +3,9 @@
 
 
 def pascal_triangle(n):
-    """this function returns a list kf lists of integrrs representing the triangle"""
+    """this function returns a list kf lists of integers
+    representing the triangle
+    """
     list1 = []
     if n <= 0:
         return list1
