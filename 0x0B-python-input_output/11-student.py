@@ -23,7 +23,7 @@ class Student:
     def reload_from_json(self, json):
         values = json
         try:
-            self.first_name = values["first _name"]
+            self.first_name = values["first_name"]
         except Exception:
             pass
         try:
