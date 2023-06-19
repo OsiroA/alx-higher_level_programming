@@ -71,29 +71,31 @@ class Base:
         """20th task"""
         afile = cls.__name__ + ".csv"
         with open(afile, "w", newline="") as csvfile:
-            if list_objs is None or list_objs == []:
-                csvfile.write("[]")
-            else:
+            writer = csv.writer(csvfile)
+            for ob in list_objs:
                 if cls.__name__ == "Rectangle":
-                    fieldN = ["id", "width", "height", "x", "y"]
+                    writer.writerow([ob.id, ob.width, ob.height, ob.x, ob.y])
                 else:
-                    fieldN = ["id", "size", "x", "y"]
-                onkowe = csv.Dictwriter(csvfile, fieldN=fieldN)
-                for obj in list_objs:
-                    onkowe.writerow(obj.to_dictionary())
+                    writer.writerow([ob.id, ob.size, ob.x, ob.y])
 
     @classmethod
     def load_from_file_csv(cls):
+        ob = []
         afile = cls.__name__ + ".csv"
-        try:
-            with open(afile, 'r', newline='') as csvfile:
-                if cls.__name__ = "Rectangle":
-                    fieldN = ["id", "width", "height", "x", "y"]
+        with open(afile, 'r', newline='') as csvf:
+            reader = csv.reader(csvf)
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    dic = {"id": int(row[0]),
+                            "width": int(row[1]),
+                            "height": int(row[2]),
+                            "x": int(row[3]),
+                            "y": int(row[4])}
                 else:
-                    fieldN = ["id", "size", "x", "y"]
-                listDict = csv.DictReader(csvfile, fieldN=fieldN)
-                listDict = [dict([key, int(value)] for key, value in b.items())
-                            for b in listDict]
-                return [cls.create(**b) for b in listDict]
-            except IOError:
-                return []
+                    dic = {"id": int(row[0]),
+                            "size": int(row[1]),
+                            "x": int(row[2]),
+                            "y": int(row[3])}
+                objects = cls.create(**dic)
+                ob.append(objects)
+        return ob
