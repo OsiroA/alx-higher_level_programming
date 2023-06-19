@@ -65,3 +65,35 @@ class Base:
                 return [cls.create(**b) for b in listDict]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """20th task"""
+        afile = cls.__name__ + ".csv"
+        with open(afile, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldN = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldN = ["id", "size", "x", "y"]
+                onkowe = csv.Dictwriter(csvfile, fieldN=fieldN)
+                for obj in list_objs:
+                    onkowe.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        afile = cls.__name__ + ".csv"
+        try:
+            with open(afile, 'r', newline='') as csvfile:
+                if cls.__name__ = "Rectangle":
+                    fieldN = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldN = ["id", "size", "x", "y"]
+                listDict = csv.DictReader(csvfile, fieldN=fieldN)
+                listDict = [dict([key, int(value)] for key, value in b.items())
+                            for b in listDict]
+                return [cls.create(**b) for b in listDict]
+            except IOError:
+                return []
