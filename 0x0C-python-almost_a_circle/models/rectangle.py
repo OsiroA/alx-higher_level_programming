@@ -14,10 +14,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """The class constructor of theclass Rectangle"""
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -27,6 +27,10 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """setter fdore the attribute: width"""
+        if not isinstance(value, int):
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
         self.__width = value
 
     @property
@@ -37,6 +41,10 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """This sets the height for attribute height"""
+        if not isinstance(value, int):
+            raise TypeError('height must be an integer')
+        if value <= 0:
+            raise ValueError('height must be> 0')
         self.__height = value
 
     @property
@@ -47,6 +55,10 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """this sets the method for the attributre called 'x' """
+        if not isinstance(value, int):
+            raise TypeError('x must be an integer')
+        if value < 0:
+            raise ValueError('x must be >= 0')
         self.__x = value
 
     @property
@@ -56,5 +68,46 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """This sets the method forthe y attribute"""
+        """This sets the method forthe y attribute""" 
+        if not isinstance(value, int):
+            raise TypeError('y must be an integer')
+        if value < 0:
+            raise ValueError('y must be >= 0')
         self.__y = value
+
+    def area(self):
+        """This returns the area of a rectangle"""
+        return self.width * self.height
+
+    def display(self):
+        """this prints out the rectanglewith the character #"""
+        for a in range(self.height):
+            print('#' * self.width)
+
+    def display(self):
+        """task 7: print to stdout, the rectangle using #
+        and taking care of attributes x and y"""
+        print("\n" *self.__y, end = '')
+        for b in range(self.__height):
+            print(" " * self.__x, end='')
+            print("#" * self.__width)
+
+    def __str__(self):
+        """this overrides a method, task 6"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y,
+            self.__width, self.__height))
+
+    def update(self, *args, **kwargs):
+        """tasks 8 and 9, this assigns an argument
+        to each attribute"""
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                setattr(self, key, val)
+        try:
+            self.__id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]
+        except IndexError:
+            pass
