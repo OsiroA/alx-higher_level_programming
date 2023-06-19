@@ -100,7 +100,24 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """tasks 8 and 9, this assigns an argument
         to each attribute"""
-        if len(args) == 0:
+        if args and len(args) != 0:
+            b = 0
+            for argument in args:
+                if b == 0:
+                    if argument is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = argument
+                elif b == 1:
+                    self.width = argument
+                elif b == 2:
+                    self.height = argument
+                elif b == 3:
+                    self.x = argument
+                elif b == 4:
+                    self.y = argument
+                b += 1
+        elif kwargs and len(kwargs) != 0:
             for key, val in kwargs.items():
                 setattr(self, key, val)
         try:
