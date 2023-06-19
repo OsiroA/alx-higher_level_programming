@@ -68,7 +68,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """This sets the method forthe y attribute""" 
+        """This sets the method forthe y attribute"""
         if not isinstance(value, int):
             raise TypeError('y must be an integer')
         if value < 0:
@@ -87,15 +87,15 @@ class Rectangle(Base):
     def display(self):
         """task 7: print to stdout, the rectangle using #
         and taking care of attributes x and y"""
-        print("\n" *self.__y, end = '')
+        print("\n" * self.__y, end='')
         for b in range(self.__height):
             print(" " * self.__x, end='')
             print("#" * self.__width)
 
     def __str__(self):
         """this overrides a method, task 6"""
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y,
-            self.__width, self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.__x, self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
         """tasks 8 and 9, this assigns an argument

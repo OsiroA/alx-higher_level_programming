@@ -25,8 +25,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """returns a given calc"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-            self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
         """task 12, updating the square with attributes"""
