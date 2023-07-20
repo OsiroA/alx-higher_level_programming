@@ -7,6 +7,6 @@ WHERE g.name NOT IN (
 	INNER JOIN tv_show_genres AS s
 	ON tv_genres.id = s.genre_id
 	INNER JOIN tv_shows
-	ON tv_shows.id = g.show_id
+	ON tv_shows.id = s.show_id
 	WHERE tv_shows.title = "Dexter")
 ORDER BY g.name ASC;
