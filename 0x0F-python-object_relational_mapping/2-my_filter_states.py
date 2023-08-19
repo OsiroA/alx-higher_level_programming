@@ -15,7 +15,7 @@ if __name__ == "__main__":
     rows = cur.fetchall()
 
     for row in rows:
-        if row[1][0] == argv[4]:
+        if row[1] == argv[4]:
             print(row)
     cur.close()
     db.close()
