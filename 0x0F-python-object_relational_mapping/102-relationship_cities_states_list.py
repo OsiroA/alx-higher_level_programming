@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-This script lists all state objects and corresponding cities
+This script lists all City objects
 from a given database
 '''
 
@@ -22,11 +22,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=database_engine)
 
     session = Session()
-
-    state = session.query(State).order_by(State.id).all()
-    for row in state:
-        print("{}: {}".format(row.id, row.name))
-        for city in row.cities:
-            print("    {}: {}".format(city.id, city.name))
-    session.commit()
+    cities = session.query(City).all()
+    for city in cities:
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
     session.close()
