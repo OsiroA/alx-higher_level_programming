@@ -23,7 +23,7 @@ if __name__ == "__main__":
     session = Session()
     # state = session.query(State).filter_by(id=2).first()
     for state in session.query(State).filter(State.name.contains('a')):
-            session.delete(state)
+        session.delete(state)
     session.commit()
     # print(newObject.id)
     session.close()
