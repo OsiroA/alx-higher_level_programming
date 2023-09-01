@@ -11,5 +11,6 @@ if __name__ == "__main__":
     request = requests.get(url)
     commits = request.json()
     for commit in commits[:10]:
-        print(commit.get('sha'), end=': ')
-        print(commit.get('commit').get('author').get('name'))
+        sha = commit.get('sha')
+        author = commit.get('commit').get('author').get('name')
+        print("{}: {}".format(sha, author))
