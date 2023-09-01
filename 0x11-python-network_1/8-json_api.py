@@ -14,7 +14,7 @@ if __name__ == "__main__":
         letter = ""
         url = 'http://0.0.0.0:5000/search_user'
         parameter = {'q': letter}
-        response = requests.post(url, parameter)
+        response = requests.post(url, data=parameter)
         try:
             JSONResponse = response.json()
             if JSONResponse:
